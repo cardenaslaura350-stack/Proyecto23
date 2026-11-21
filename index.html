@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proyecto 23 - Aplicación Web del Tiempo</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+  <main class="app-container">
+    <header class="app-header">
+      <h1>Pronóstico del Tiempo</h1>
+      <div class="controls">
+        <form id="search-form" class="search-form">
+          <input
+            type="text"
+            id="location-input"
+            placeholder="Ej. Sogamoso, Bogotá, Madrid..."
+            aria-label="Ubicación"
+            required
+          />
+          <button type="submit" class="btn primary">Buscar</button>
+        </form>
+        <button id="refresh-btn" class="btn secondary" title="Actualizar clima">
+          ↻ Refrescar
+        </button>
+        <button id="geo-btn" class="btn secondary" title="Usar mi ubicación">
+          📍 Mi ubicación
+        </button>
+      </div>
+    </header>
+
+    <!-- Estado de carga y errores -->
+    <div id="status-message" class="status-message hidden"></div>
+
+    <!-- Tarjeta principal: Clima actual -->
+    <section id="weather-content" class="weather-content hidden">
+      <article class="current-card fade-in">
+        <div class="current-header">
+          <div>
+            <h2 id="location-name">--</h2>
+            <p id="current-date" class="subtitle">--</p>
+          </div>
+          <span id="weather-condition" class="badge">--</span>
+        </div>
+
+        <div class="current-metrics">
+          <div class="metric main-temp">
+            <span id="current-temp">--°C</span>
+            <small>Temperatura actual</small>
+          </div>
+          <div class="metric">
+            <strong id="current-wind">-- km/h</strong>
+            <small>Velocidad del viento</small>
+          </div>
+          <div class="metric">
+            <strong id="current-rain">--%</strong>
+            <small>Probabilidad de lluvia</small>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sección: Próximas 24 horas -->
+      <section class="hourly-section fade-in">
+        <h3>Próximas 24 horas</h3>
+        <div id="future-hours" class="hourly-grid"></div>
+      </section>
+
+      <!-- Sección: Últimas 24 horas -->
+      <section class="hourly-section fade-in">
+        <h3>Últimas 24 horas</h3>
+        <div id="past-hours" class="hourly-grid"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
